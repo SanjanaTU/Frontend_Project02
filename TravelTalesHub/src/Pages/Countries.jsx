@@ -40,6 +40,7 @@ const Countries = () => {
               />
               <p>{country.name} </p>
             </Link>
+           
           </li>
         ))}
       </ul>
