@@ -22,7 +22,7 @@ const Countries = () => {
   }, []);
 
   return (
-    <div>
+    <div >
       <h1>Explore The Places</h1>
       <ul style={{ listStyleType: "none", display: "flex", flexWrap: "wrap" }}>
         {countries.map((country) => (
@@ -31,8 +31,8 @@ const Countries = () => {
             style={{ flex: "0 0 33.33%", padding: "10px" }}
           >
             
-            <Link to={`/countries/${country.id}`}>
-              <img
+            <Link to={`/countries/${country.id}`} class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+              <img 
                 src={country.image}
                 alt={country.name}
                 className="img-fluid img-thumbnail"

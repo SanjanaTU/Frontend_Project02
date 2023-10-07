@@ -45,3 +45,7 @@ li {
   margin: 0;
   padding: 0;
 }
+
+.d-flex align-items-center{
+  padding-top: '100px';
+}
