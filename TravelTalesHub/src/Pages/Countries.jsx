@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -25,14 +26,20 @@ const Countries = () => {
       <h1>Explore The Places</h1>
       <ul style={{ listStyleType: "none", display: "flex", flexWrap: "wrap" }}>
         {countries.map((country) => (
-          <li key={country.id} style={{ flex: "0 0 33.33%", padding: "10px" }}>
-            <img
-              src={country.image}
-              alt={country.name}
-              className="img-fluid img-thumbnail"
-              style={{ height: "200px", width: "400px" }}
-            />
-            <p>{country.name} </p>
+          <li
+            key={country.id}
+            style={{ flex: "0 0 33.33%", padding: "10px" }}
+          >
+            
+            <Link to={`/countries/${country.id}`}>
+              <img
+                src={country.image}
+                alt={country.name}
+                className="img-fluid img-thumbnail"
+                style={{ height: "200px", width: "400px" }}
+              />
+              <p>{country.name} </p>
+            </Link>
           </li>
         ))}
       </ul>
@@ -41,3 +48,5 @@ const Countries = () => {
 };
 
 export default Countries;
+
+
