@@ -3,6 +3,7 @@ import './App.css'
 import React from 'react'
 import Countries from './Pages/Countries'
 import HomePage from './Pages/HomePage'
+import CountriesDetailPage from './Pages/CountriesDetailPage'
 import Tourist from './Pages/TouristPlaces'
 import Navbar from './components/NavBar'
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
 
           <Route path='/countries' element={<Countries />} />
+          <Route path='/countries/:countryId' element={<CountriesDetailPage />}/>
   
           <Route path='*' element={<h1>404 Page</h1>} />
         </Routes>
