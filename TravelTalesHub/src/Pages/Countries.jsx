@@ -20,9 +20,10 @@ const Countries = () => {
 
   useEffect(() => {
     fetchAllCountries();
-  }, [countries]);
+  }, []);
 
   return (
+    <>
     <div>
       <h1>Explore The Places</h1>
       <ul>
@@ -39,6 +40,7 @@ const Countries = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 
