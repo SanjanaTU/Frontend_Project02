@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+
+
 const Countries = () => {
   const [countries, setCountries] = useState([]);
 
@@ -22,18 +24,17 @@ const Countries = () => {
 
   return (
     <div>
-      <h1>List of Countries</h1>
+      <h1>Explore The Places</h1>
       <ul>
         {countries.map((country) => (
           <li key={country.id}>
-           <p>Name:{country.name}</p> 
-           <p>Capital:{country.capital}</p> 
-          <img src={country.image} alt={country.name}    style={{
-                  height: '150px',
-                  borderRight: '2px dashed darkgrey',
-                  paddingRight: '15px',
-                }}/>
-          <p>Description:{country.description}</p>
+
+<div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+          <img src={country.image} alt={country.name}   className="h-full w-full object-cover object-center lg:h-full lg:w-full" ></img>
+        </div>
+         
+          <p> Name:{country.name} </p> 
+          <p></p>
            </li>
         ))}
       </ul>
