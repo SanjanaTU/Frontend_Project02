@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -40,19 +43,18 @@
 .read-the-docs {
   color: #888;
 }
+
 li {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.d-flex align-items-center{
+.d-flex align-items-center {
   padding-top: '100px';
 }
 
-/* CountriesDetailPage.css */
 
-/* Container style */
 .container {
   background-color: #f8f8f8;
   padding: 30px;
@@ -60,7 +62,7 @@ li {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Country image style */
+
 .country-image {
   max-height: 300px;
   width: 100%;
@@ -78,14 +80,14 @@ li {
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+
 .country-image {
-  max-height: 350px; 
-  width: 350px; 
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
   border: 2px solid #ddd;
-  border-radius: 50%; 
+  border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease-in-out;
-  overflow: hidden; 
 }
 
 .country-image:hover {
@@ -137,14 +139,16 @@ h2 {
 .back-button:hover {
   background-color: #0056b3;
 }
+
 h2:hover {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 
-.mb-3:hover, .description:hover {
-  color: #0056b3; 
-  transition: color 0.3s; 
+.mb-3:hover,
+.description:hover {
+  color: #0056b3;
+  transition: color 0.3s;
 }
 
 
@@ -195,9 +199,9 @@ h2:hover {
 
 
 .country-image {
-  width: 200px; 
-  height: 200px; 
-  object-fit: cover; 
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border: 2px solid #ddd;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -208,5 +212,3 @@ h2:hover {
   font-size: 20px;
   margin-top: 10px;
 }
-
-

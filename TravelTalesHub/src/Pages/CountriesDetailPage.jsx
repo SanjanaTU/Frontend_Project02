@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 
 const CountriesDetailPage = () => {
   const { countryId } = useParams();
@@ -8,13 +8,15 @@ const CountriesDetailPage = () => {
 
   const fetchOneCountry = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/countries/${countryId}`);
+      const response = await fetch(
+        `http://localhost:5000/countries/${countryId}`
+      );
       if (response.ok) {
         const oneCountry = await response.json();
         setCountry(oneCountry);
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -49,7 +51,10 @@ const CountriesDetailPage = () => {
             {country.tourist ? (
               country.tourist.map((touristplace) => (
                 <li key={touristplace}>
-                  <Link to={`/${touristplace.toLowerCase()}`} className="tourist-link">
+                  <Link
+                    to={`/${touristplace.toLowerCase()}`}
+                    className="tourist-link"
+                  >
                     {touristplace}
                   </Link>
                 </li>
@@ -62,7 +67,6 @@ const CountriesDetailPage = () => {
       ) : (
         <p>Loading...</p>
       )}
-      
     </Container>
   );
 };

@@ -26,10 +26,7 @@ const Countries = () => {
       <ul className="country-list">
         {countries.map((country) => (
           <li key={country.id} className="country-item">
-            <Link
-              to={`/countries/${country.id}`}
-              className="country-link"
-            >
+            <Link to={`/countries/${country.id}`} className="country-link">
               <img
                 src={country.image}
                 alt={country.name}
