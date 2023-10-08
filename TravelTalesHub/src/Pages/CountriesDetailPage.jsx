@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
+
+
 
 const CountriesDetailPage = () => {
   const { countryId } = useParams();
@@ -34,7 +36,7 @@ const CountriesDetailPage = () => {
                 src={country.image1}
                 alt={country.name}
                 fluid
-                className="country-image"
+                className="countryimage"
               />
             </Col>
             <Col xs={12} md={6}>
