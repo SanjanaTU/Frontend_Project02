@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -10,10 +10,9 @@ const Countries = () => {
       if (response.ok) {
         const allCountries = await response.json();
         setCountries(allCountries);
-        console.log(allCountries);
       }
     } catch (error) {
-      console.log("Error:", error);
+      console.error("Error:", error);
     }
   };
 
@@ -22,34 +21,24 @@ const Countries = () => {
   }, []);
 
   return (
-    <>
-    <div>
-      <h1>Explore The Places</h1>
-      <ul style={{ listStyleType: "none", display: "flex", flexWrap: "wrap" }}>
+    <div className="container">
+      <h1 className="heading">Explore The Places</h1>
+      <ul className="country-list">
         {countries.map((country) => (
-          <li
-            key={country.id}
-            style={{ flex: "0 0 33.33%", padding: "10px" }}
-          >
-            
-            <Link to={`/countries/${country.id}`}>
+          <li key={country.id} className="country-item">
+            <Link to={`/countries/${country.id}`} className="country-link">
               <img
                 src={country.image}
                 alt={country.name}
-                className="img-fluid img-thumbnail"
-                style={{ height: "200px", width: "400px" }}
+                className="country-image"
               />
-              <p>{country.name} </p>
+              <p className="country-name">{country.name}</p>
             </Link>
-           
           </li>
         ))}
       </ul>
     </div>
-    </>
   );
 };
 
 export default Countries;
-
-
