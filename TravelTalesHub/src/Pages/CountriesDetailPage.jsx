@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { useParams, Link } from 'react-router-dom';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 const CountriesDetailPage = () => {
   const { countryId } = useParams();
-  const [country, setCountry] = useState(null); 
-  const [place, setPlace] = useState("")
+  const [country, setCountry] = useState(null);
 
   const fetchOneCountry = async () => {
     try {
       const response = await fetch(`http://localhost:5000/countries/${countryId}`);
-      if (response.ok) {     
-      const oneCountry = await response.json();
-      setCountry(oneCountry);
+      if (response.ok) {
+        const oneCountry = await response.json();
+        setCountry(oneCountry);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -21,56 +20,49 @@ const CountriesDetailPage = () => {
 
   useEffect(() => {
     fetchOneCountry();
-  }, []);
-  {
-    useEffect(() => {
-        fetchOneCountry()
-    }, [place])
-}
-
+  }, [countryId]);
 
   return (
     <Container className="mt-4">
-    {country ? (
-      <>
-        <Row>
-          <Col xs={12} md={6}>
-            <Image
-              src={country.image1}
-              alt={country.name}
-              fluid
-              style={{ height: '300px', width: '500px', border: '2px solid #000' }}
-            />
-          </Col>
-          <Col xs={12} md={6}>
-            <h2>{country.name}</h2>
-            <p className="mb-0">
-              <strong>Capital:</strong> {country.capital}
-            </p>
-            <p>
-              <strong>Description:</strong> {country.description}
-            </p>
-          </Col>
-        </Row>
-        <hr />
-        <h3>Tourist Places</h3>
-        <ul>
+      {country ? (
+        <>
+          <Row>
+            <Col xs={12} md={6}>
+              <Image
+                src={country.image1}
+                alt={country.name}
+                fluid
+                className="country-image"
+              />
+            </Col>
+            <Col xs={12} md={6}>
+              <h2>{country.name}</h2>
+              <p className="mb-3">
+                <strong>Capital:</strong> {country.capital}
+              </p>
+              <p className="description">{country.description}</p>
+            </Col>
+          </Row>
+          <hr className="my-4" />
+          <h3>Tourist Places</h3>
+          <ul className="tourist-places-list">
             {country.tourist ? (
               country.tourist.map((touristplace) => (
                 <li key={touristplace}>
-                  <Link to={`/${touristplace.toLowerCase()}`}>{touristplace}</Link>
+                  <Link to={`/${touristplace.toLowerCase()}`} className="tourist-link">
+                    {touristplace}
+                  </Link>
                 </li>
               ))
             ) : (
               <p>No tourist places available.</p>
             )}
           </ul>
-        
-          
         </>
       ) : (
-        <p>Loading...</p> 
+        <p>Loading...</p>
       )}
+      
     </Container>
   );
 };
