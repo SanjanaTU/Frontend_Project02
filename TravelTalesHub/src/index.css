@@ -66,27 +66,80 @@
     color: #0056b3; 
   }
   
- 
-  .tourist-places-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  
-  .tourist-link {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    transition: color 0.2s; 
-  }
-  
-  .tourist-link:hover {
-    color: #0056b3; 
-  }
-  
- 
-  .my-4 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  
+ /* TouristPlaces.css */
+
+/* Container for the entire content */
+.tourist-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+/* Container for the content */
+.tourist-content {
+  display: flex;
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.tourist-content:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Container for the image */
+.image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Styling for the image */
+.tourist-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover .tourist-image {
+  transform: scale(1.05);
+}
+
+/* Container for the description */
+.description-container {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Styling for the title */
+.tourist-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styling for the description text */
+.tourist-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Fade-in effect for description */
+.tourist-content:hover .description-container {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.description-container {
+  opacity: 0;
+  transform: translateX(-20px);
+}

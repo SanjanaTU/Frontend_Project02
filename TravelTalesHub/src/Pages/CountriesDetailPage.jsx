@@ -35,11 +35,11 @@ const CountriesDetailPage = () => {
       console.log("Error fetching data:", error);
     }
   };
-
-  useEffect(() => {
+ useEffect(() => {
     fetchOneCountry();
   }, []);
 
+ 
   
  
 
@@ -71,7 +71,8 @@ const CountriesDetailPage = () => {
               place.map((touristplace) => (
                 <li key={touristplace.id}>
                   <Link
-                    to={`/${touristplace.id}`}
+                    to={`/countries/${countryId}/tourist/${touristplace.id}`} 
+                    
                     className="tourist-link"
                   >
                     {touristplace.placeName}
