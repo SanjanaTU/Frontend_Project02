@@ -6,25 +6,42 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 
 const CountriesDetailPage = () => {
   const { countryId } = useParams();
+
   const [country, setCountry] = useState(null);
+  const [place, setPlace]=useState("")
 
   const fetchOneCountry = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/countries/${countryId}`
+        `${import.meta.env.VITE_API_URL}/countries/${countryId}`
       );
+      const touristresponse = await fetch(
+        `${import.meta.env.VITE_API_URL}/tourist`
+      );
+      const parse = await touristresponse.json()
+      console.log(parse)
+
+      const filtertourist = parse.filter((onetourist) => onetourist.countryId == countryId);
+      console.log(filtertourist);
+  
+      setPlace(filtertourist);
+  
+    
       if (response.ok) {
         const oneCountry = await response.json();
         setCountry(oneCountry);
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.log("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
     fetchOneCountry();
-  }, [countryId]);
+  }, []);
+
+  
+ 
 
   return (
     <Container className="mt-4">
@@ -50,15 +67,16 @@ const CountriesDetailPage = () => {
           <hr className="my-4" />
           <h3>Tourist Places</h3>
           <ul className="tourist-places-list">
-            {country.tourist ? (
-              country.tourist.map((touristplace) => (
-                <li key={touristplace}>
+            {place ? (
+              place.map((touristplace) => (
+                <li key={touristplace.id}>
                   <Link
-                    to={`/${touristplace.toLowerCase()}`}
+                    to={`/${touristplace.id}`}
                     className="tourist-link"
                   >
-                    {touristplace}
+                    {touristplace.placeName}
                   </Link>
+                
                 </li>
               ))
             ) : (

@@ -6,14 +6,15 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
 
   const fetchAllCountries = async () => {
+    console.log(`${import.meta.env.VITE_API_URL}/countries`)
     try {
-      const response = await fetch(`http://localhost:5000/countries`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/countries`);
       if (response.ok) {
         const allCountries = await response.json();
         setCountries(allCountries);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
     }
   };
 
