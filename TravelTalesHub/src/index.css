@@ -66,27 +66,102 @@
     color: #0056b3; 
   }
   
- 
-  .tourist-places-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  
-  .tourist-link {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    transition: color 0.2s; 
-  }
-  
-  .tourist-link:hover {
-    color: #0056b3; 
-  }
-  
- 
-  .my-4 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-  
+ /* TouristPlaces */
+
+
+.tourist-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+
+.tourist-content {
+  display: flex;
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.tourist-content:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.tourist-image {
+  width: 400px; 
+  height: 500px; 
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover .tourist-image {
+  transform: scale(1.05);
+}
+
+
+.description-container {
+  flex: 1;
+  padding: 20px;
+}
+
+
+.tourist-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.tourist-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+
+.tourist-content:hover .description-container {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.description-container {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+
+.custom-button {
+  background-color: black; /* Red background color, you can change it */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Adjust padding as needed */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+
+  /* Center the icon and text horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the trash icon within the button */
+.custom-button .trash-icon {
+  margin-right: 5px; /* Space between the icon and text */
+  font-size: 18px; /* Icon size, adjust as needed */
+}

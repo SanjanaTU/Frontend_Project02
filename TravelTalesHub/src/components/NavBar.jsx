@@ -32,6 +32,7 @@ function Navbar() {
       <Link to="/Login">
         <button className='btn btn-black text-white'>Login </button>
       </Link>
+      
       </div>
     </nav>
   )

@@ -4,10 +4,11 @@ import React from 'react'
 import Countries from './Pages/Countries'
 import HomePage from './Pages/HomePage'
 import CountriesDetailPage from './Pages/CountriesDetailPage'
-import Tourist from './Pages/TouristPlaces'
 import Navbar from './components/NavBar'
 import AddPlaces from './Pages/AddPlaces'
 import Login from './Pages/Login'
+import TouristPlaces from './Pages/TouristPlaces'
+import Footer from'./Pages/Footer'
 
 
 
@@ -22,11 +23,14 @@ function App() {
           <Route path='/countries' element={<Countries />} />
           <Route path='/countries/:countryId' element={<CountriesDetailPage />}/>
           <Route path='/AddPlaces' element={<AddPlaces />} />
-          <Route path='/countries/:countryId/:touristId/newplace' element={<AddPlaces />} />
+      { /*  <Route path='/countries/:countryId/:touristId/newplace' element={<AddPlaces />} /> */}
           <Route path='/Login' element={<Login />} />
+          <Route path='/countries/:countryId/tourist/:touristId' element={<TouristPlaces />}/>
           <Route path='*' element={<h1>404 Page</h1>} />
         </Routes>
+        <Footer />
       </div>
+   
     )
   }
 
