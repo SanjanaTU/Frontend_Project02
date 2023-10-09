@@ -66,9 +66,9 @@
     color: #0056b3; 
   }
   
- /* TouristPlaces.css */
+ /* TouristPlaces */
 
-/* Container for the entire content */
+
 .tourist-container {
   display: flex;
   justify-content: center;
@@ -77,7 +77,7 @@
   background-color: #f8f8f8;
 }
 
-/* Container for the content */
+
 .tourist-content {
   display: flex;
   max-width: 800px;
@@ -92,14 +92,14 @@
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Container for the image */
+
 .image-container {
   flex: 1;
   position: relative;
   overflow: hidden;
 }
 
-/* Styling for the image */
+
 .tourist-image {
   width: 100%;
   height: auto;
@@ -111,13 +111,13 @@
   transform: scale(1.05);
 }
 
-/* Container for the description */
+
 .description-container {
   flex: 1;
   padding: 20px;
 }
 
-/* Styling for the title */
+
 .tourist-title {
   font-size: 24px;
   font-weight: bold;
@@ -125,14 +125,14 @@
   margin-bottom: 10px;
 }
 
-/* Styling for the description text */
+
 .tourist-description {
   font-size: 16px;
   color: #666;
   line-height: 1.5;
 }
 
-/* Fade-in effect for description */
+
 .tourist-content:hover .description-container {
   opacity: 1;
   transform: translateX(0);
