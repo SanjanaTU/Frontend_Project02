@@ -1,4 +1,5 @@
 import React from 'react'
+import './HomePage.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -9,7 +10,7 @@ const HomePage = () => {
   const [selectCountry, setSelectCountry] = useState([]);
   const fetchCountry = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/countries`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/countries`);
       if (response.ok) {
         const countries = await response.json();
         setSelectCountry(countries);
@@ -33,8 +34,8 @@ const HomePage = () => {
 
     
   return (
-    <div className="video-container">
-    <video src="./src/assets/waves.mp4" muted autoPlay loop type="video/mp4"></video>
+    <div className="video-container  overflow-hidden overflow-x-hidden " >
+    <video src="./src/assets/waves.mp4" className='object-fit-fill'    muted autoPlay loop type="video/mp4"></video>
    <div className="content">
    <h1 className='smallText'>EXPLORE.DREAM.DISCOVER</h1>
     <h3>"The best view comes after the hardest climb."</h3>

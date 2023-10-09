@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 
 
 
@@ -71,13 +71,14 @@ const CountriesDetailPage = () => {
               place.map((touristplace) => (
                 <li key={touristplace.id}>
                   <Link
-                    to={`/${touristplace.id}`}
+                    to={`${touristplace.id}`}
                     className="tourist-link"
                   >
                     {touristplace.placeName}
                   </Link>
                 
                 </li>
+              
               ))
             ) : (
               <p>No tourist places available.</p>
