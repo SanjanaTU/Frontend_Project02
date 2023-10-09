@@ -7,6 +7,7 @@ import CountriesDetailPage from './Pages/CountriesDetailPage'
 import Tourist from './Pages/TouristPlaces'
 import Navbar from './components/NavBar'
 import TouristPlaces from './Pages/TouristPlaces'
+import Footer from'./Pages/Footer'
 
 
 
@@ -21,11 +22,15 @@ function App() {
 
           <Route path='/countries' element={<Countries />} />
           <Route path='/countries/:countryId' element={<CountriesDetailPage />}/>
+         
           <Route path='/countries/:countryId/tourist/:touristId' element={<TouristPlaces />}/>
+
   
           <Route path='*' element={<h1>404 Page</h1>} />
         </Routes>
+        <Footer />
       </div>
+   
     )
   }
 

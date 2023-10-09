@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { AiOutlineDelete } from 'react-icons/ai';
+import { Button } from 'react-bootstrap';
+
 
 
 
@@ -39,9 +42,32 @@ const CountriesDetailPage = () => {
     fetchOneCountry();
   }, []);
 
- 
+  const handleDelete = async (id) => {
+    try {
+      // Send a DELETE request to your API
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/tourist/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json", // You can adjust the headers as needed
+          },
+        }
+      );
   
- 
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      // After successful deletion, update the UI
+      setPlace((prevPlace) =>
+        prevPlace.filter((touristplace) => touristplace.id !== id)
+      );
+    } catch (error) {
+      console.error("Error deleting tourist place:", error);
+    }
+  };
+  
 
   return (
     <Container className="mt-4">
@@ -76,7 +102,18 @@ const CountriesDetailPage = () => {
                     className="tourist-link"
                   >
                     {touristplace.placeName}
+                    
+                    
                   </Link>
+                  <Button
+  className="custom-button"
+  onClick={() => handleDelete(touristplace.id)}
+>
+  <AiOutlineDelete className="trash-icon" /> 
+</Button>
+  
+
+
                 
                 </li>
               ))

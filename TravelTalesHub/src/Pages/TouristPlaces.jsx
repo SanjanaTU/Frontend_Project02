@@ -12,14 +12,12 @@ const TouristPlaces = () => {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/tourist/${touristId}`
       );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+     6
       const oneTourist = await response.json();
       setTourist(oneTourist);
       setIsLoaded(true);
     } catch (error) {
-      console.error("Error fetching tourist data:", error);
+      console.log("Error fetching tourist data:", error);
     }
   };
 

@@ -143,3 +143,25 @@
   opacity: 0;
   transform: translateX(-20px);
 }
+
+
+.custom-button {
+  background-color: black; /* Red background color, you can change it */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Adjust padding as needed */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+
+  /* Center the icon and text horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the trash icon within the button */
+.custom-button .trash-icon {
+  margin-right: 5px; /* Space between the icon and text */
+  font-size: 18px; /* Icon size, adjust as needed */
+}
