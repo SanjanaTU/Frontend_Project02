@@ -23,10 +23,11 @@ function App() {
           <Route path='/countries' element={<Countries />} />
           <Route path='/countries/:countryId' element={<CountriesDetailPage />}/>
           <Route path='/AddPlaces/:countryId' element={<AddPlaces />} />
-      { /*  <Route path='/countries/:countryId/:touristId/newplace' element={<AddPlaces />} /> */}
           <Route path='/Login' element={<Login />} />
-          <Route path='/countries/:countryId/tourist/:countryId' element={<TouristPlaces />}/>
-          <Route path='*' element={<h1>404 Page</h1>} />
+          <Route
+          path="/countries/:countryId/tourist/:touristId"
+          element={<TouristPlaces />} />
+        <Route path="*" element={<h1>You Landed On Wrong Page</h1>} />
         </Routes>
         <Footer />
       </div>

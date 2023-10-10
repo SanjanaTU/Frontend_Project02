@@ -126,42 +126,22 @@
 }
 
 
-.tourist-description {
-  font-size: 16px;
-  color: #666;
-  line-height: 1.5;
-}
-
-
-.tourist-content:hover .description-container {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.description-container {
-  opacity: 0;
-  transform: translateX(-20px);
-}
 
 
 .custom-button {
-  background-color: black; /* Red background color, you can change it */
-  color: #fff; /* Text color */
+  background-color: transparent;
+  color: white;
   border: none;
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Adjust padding as needed */
+  border-radius: 5px;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth background color transition */
-
-  /* Center the icon and text horizontally */
-  display: flex;
+  transition: background-color 0.3s ease;
   align-items: center;
-  justify-content: center;
 }
 
-/* Style the trash icon within the button */
-.custom-button .trash-icon {
-  margin-right: 5px; /* Space between the icon and text */
-  font-size: 18px; /* Icon size, adjust as needed */
-}
+
+
+
+
+
+
