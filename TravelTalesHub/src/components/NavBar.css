@@ -1,0 +1,60 @@
+/* Navbar styles */
+.navbar {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+
+.btn {
+  margin: 5px;
+  color: blue;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+  color: black;
+  background-color: blue;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: black;
+  border: none;
+  right: 0;
+}
+
+
+.nav-center {
+  display: flex;
+  align-items: center;
+}
+
+
+.name_project {
+  text-align: center;
+  margin: 0 auto; 
+}
+
+.name_project h1 {
+  font-size: 24px; 
+  color: white; 
+}

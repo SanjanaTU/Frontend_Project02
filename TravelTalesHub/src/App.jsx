@@ -8,7 +8,7 @@ import Navbar from './components/NavBar'
 import AddPlaces from './Pages/AddPlaces'
 import Login from './Pages/Login'
 import TouristPlaces from './Pages/TouristPlaces'
-import Footer from'./Pages/Footer'
+
 
 
 
@@ -29,7 +29,7 @@ function App() {
           element={<TouristPlaces />} />
         <Route path="*" element={<h1>You Landed On Wrong Page</h1>} />
         </Routes>
-        <Footer />
+       
       </div>
    
     )
