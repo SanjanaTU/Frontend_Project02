@@ -1,0 +1,21 @@
+
+/* Style the button */
+.btn-primary {
+  background-color: transparent; 
+  color: black; 
+  border: none; 
+  padding: 0; 
+  margin-top: 300px;
+  margin-left: 350px;
+  cursor: pointer; 
+  display: inline-block; 
+  vertical-align: center; 
+}
+
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: transparent; 
+  color: black;
+  outline: none; 
+}

@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import { AiOutlineDelete } from 'react-icons/ai';
-import { Button } from 'react-bootstrap';
-
-
-
+import { AiOutlineDelete } from "react-icons/ai";
+import { Button } from "react-bootstrap";
 
 const CountriesDetailPage = () => {
   const { countryId } = useParams();
 
   const [country, setCountry] = useState(null);
-  const [place, setPlace]=useState("")
+  const [place, setPlace] = useState("");
 
   const fetchOneCountry = async () => {
     try {
@@ -21,15 +18,16 @@ const CountriesDetailPage = () => {
       const touristresponse = await fetch(
         `${import.meta.env.VITE_API_URL}/tourist`
       );
-      const parse = await touristresponse.json()
-      console.log(parse)
+      const parse = await touristresponse.json();
+      console.log(parse);
 
-      const filtertourist = parse.filter((onetourist) => onetourist.countryId == countryId);
+      const filtertourist = parse.filter(
+        (onetourist) => onetourist.countryId == countryId
+      );
       console.log(filtertourist);
-  
+
       setPlace(filtertourist);
-  
-    
+
       if (response.ok) {
         const oneCountry = await response.json();
         setCountry(oneCountry);
@@ -38,36 +36,29 @@ const CountriesDetailPage = () => {
       console.log("Error fetching data:", error);
     }
   };
- useEffect(() => {
+  useEffect(() => {
     fetchOneCountry();
   }, []);
 
   const handleDelete = async (id) => {
     try {
-      // Send a DELETE request to your API
+     
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/tourist/${id}`,
         {
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json", // You can adjust the headers as needed
-          },
+            "Content-Type": "application/json", }
         }
       );
-  
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-  
-      // After successful deletion, update the UI
-      setPlace((prevPlace) =>
+
+        setPlace((prevPlace) =>
         prevPlace.filter((touristplace) => touristplace.id !== id)
       );
     } catch (error) {
       console.error("Error deleting tourist place:", error);
     }
   };
-  
 
   return (
     <Container className="mt-4">
@@ -97,24 +88,16 @@ const CountriesDetailPage = () => {
               place.map((touristplace) => (
                 <li key={touristplace.id}>
                   <Link
-                    to={`/countries/${countryId}/tourist/${touristplace.id}`} 
-                    
+                    to={`/countries/${countryId}/tourist/${touristplace.id}`}
                     className="tourist-link"
                   >
                     {touristplace.placeName}
-                    
-                    
                   </Link>
                   <Button
-  className="custom-button"
-  onClick={() => handleDelete(touristplace.id)}
->
-  <AiOutlineDelete className="trash-icon" /> 
-</Button>
-  
-
-
-                
+                    className="custom-button"
+                    onClick={() => handleDelete(touristplace.id)}>
+                    <span className="trash-icon">🗑️</span>
+                  </Button>
                 </li>
               ))
             ) : (
