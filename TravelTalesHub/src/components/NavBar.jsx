@@ -13,9 +13,6 @@ function Navbar() {
       <Link to="/">
         <button className='btn btn-black text-white'>Home</button>
       </Link>
-      <Link to="/AddPlaces">
-      <button>Add Places</button>
-      </Link>
       <div className="dropdown">
       <button className="btn btn-black text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Follow Us

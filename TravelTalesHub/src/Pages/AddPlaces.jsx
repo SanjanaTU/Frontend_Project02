@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import './AddPlaces.css'
 
 function AddPlaces(){
     const navigate =  useNavigate()
+    const {countryId}= useParams()
+  
     const [placeName,setplaceName]=useState('');
     const [placeImage,setplaceImage]=useState('');
     const [description,setDescription]=useState('');
@@ -13,6 +16,7 @@ function AddPlaces(){
             placeName,
             placeImage,
             description,
+            countryId
         }
         try{
         const response = await fetch(`${import.meta.env.VITE_API_URL}/tourist`,
@@ -25,7 +29,7 @@ function AddPlaces(){
         if(response.ok){
             const newPlace =await response.json()
             console.log(newPlace)
-            navigate('/')//i have to redirect to torist places according to sanjana id 
+            navigate(`/countries/${countryId}`)
         }
     }catch(error){
         console.log(error)
@@ -33,30 +37,37 @@ function AddPlaces(){
              
     }
     return (
-        <form style={{display:"grid", gridTemplate:'auto/3fr', justifyItems: 'center'}} 
+        <div className="place-form-container">
+        <form className="place-form" 
         onSubmit={onSubmit}>
-            <div>
-            <label>
-                PlaceName
-                <input value={placeName} type="text" id="name" onChange={(event) =>setplaceName(event.target.value)} required/>
+            <div className="form-group">
+            <label htmlFor="placeName">
+                Place Name:
+                <input value={placeName} type="text" id="placeName" className="place-form" onChange={(event) =>setplaceName(event.target.value)} required/>
             </label>
             </div>
-            <div className="mb-3">
-            <label for="formFile" class="form-label">PlaceImage</label>
-               <input value={placeImage} className="form-control" type="file" id="formFile" onChange={(event) =>setImage(event.target.value)} required/>
+            <div className="form-group">
+            <label htmlfor="placeImage" class="form-label">Place Image URL:</label>
+               <input value={placeImage} className="form-control" type="file" id="placeImage" onChange={(event) =>setplaceImage(event.target.value)} required/>
             </div>
-            <div>
-            <label>
-                Description
-                <textarea value={description} type="text"  onChange={(event) =>setDescription(event.target.value)} required/>
-            </label>
+            <div className="form-group">
+            <label htmlFor="description">
+                Description:
+                </label>
+                <textarea value={description} id='description' type="text"  onChange={(event) =>setDescription(event.target.value)} required/>
+           
             </div>
-            <div>
-            <label>
+            
                 <button type="submit">Add Place</button>
-            </label>
-            </div>
+            
+            
         </form>
+        {placeImage && (
+            <div className="image-preview">
+                <img src={placeImage} alt="Place"/>
+            </div>
+        )}
+        </div>
     )
 
 }

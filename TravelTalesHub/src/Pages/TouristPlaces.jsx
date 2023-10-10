@@ -43,6 +43,8 @@ const TouristPlaces = () => {
             </p>
           </div>
         </div>
+        
+
       ) : (
         <p>Loading...</p>
       )}

@@ -111,16 +111,19 @@ const CountriesDetailPage = () => {
 >
   <AiOutlineDelete className="trash-icon" /> 
 </Button>
-  
-
+     
 
                 
                 </li>
+                
               ))
             ) : (
               <p>No tourist places available.</p>
             )}
           </ul>
+          <Link to={`/AddPlaces/${countryId}`}>
+      <button className='btn btn-dark'>Add Places</button>
+      </Link>
         </>
       ) : (
         <p>Loading...</p>
