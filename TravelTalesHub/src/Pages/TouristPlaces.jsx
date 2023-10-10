@@ -17,7 +17,8 @@ const TouristPlaces = () => {
       );
       const oneTourist = await response.json();
       setTourist(oneTourist);
-      setEditedDescription(oneTourist.description);
+      console.log(oneTourist)
+   //   setEditedDescription(oneTourist.description);
       setIsLoaded(true);
     } catch (error) {
       console.log("Error fetching tourist data:", error);
@@ -42,22 +43,22 @@ const TouristPlaces = () => {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/tourist/${touristId}`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ description: editedDescription }),
         }
       );
-
+   
       if (response.ok) {
+       console.log(response.ok)
         setIsEditing(false);
-        fetchTouristData();
-      } else {
-        console.error("Failed to update description");
+        fetchTouristData(); 
+        console.log("Failed to update description");
       }
     } catch (error) {
-      console.error("Error updating description:", error);
+      console.log("Error updating description:", error);
     }
   };
 
@@ -76,7 +77,7 @@ const TouristPlaces = () => {
             <h1 className="tourist-title">{tourist.placeName}</h1>
 
             {isEditing ? (
-              <>
+              <div className="update-description-container">
                 <textarea
                   value={editedDescription}
                   onChange={(e) => setEditedDescription(e.target.value)}
@@ -84,22 +85,23 @@ const TouristPlaces = () => {
                   cols="50"
                   placeholder="Enter new description..."
                 ></textarea>
-                <button onClick={handleUpdateDescription}>
+                <button className="update-button" onClick={handleUpdateDescription}>
                   Update Description
                 </button>
-                <button onClick={handleCancelEdit}>Cancel</button>
-              </>
+                <button className="cancel-button" onClick={handleCancelEdit}>
+                  Cancel
+                </button>
+              </div>
             ) : (
               <>
                 <div
                   dangerouslySetInnerHTML={{ __html: tourist.description }}
                   className={`tourist-description ${isLoaded ? "fade-in" : ""}`}
                 ></div>
-              
-                  <button class="btn btn-primary" onClick={handleEdit}>
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                
+
+                <button className="btn btn-primary_edit" onClick={handleEdit}>
+                  <i className="bi bi-pencil-square"></i>
+                </button>
               </>
             )}
           </div>
